@@ -35,14 +35,13 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
 $ npm run start
+```
 
-# watch mode
-$ npm run start:dev
+## Running migrations
 
-# production mode
-$ npm run start:prod
+```bash
+$ npm run typeorm migration:run
 ```
 
 ## Test
