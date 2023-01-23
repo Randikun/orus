@@ -1,6 +1,6 @@
 import { join } from 'path';
-import { DataSource } from 'typeorm';
-import { DatabaseConfig } from '@/database/database.config';
+import { DataSource, DataSourceOptions } from 'typeorm';
+import { DatabaseConfig } from './database/database.config';
 
 const config = new DatabaseConfig();
 
@@ -15,7 +15,10 @@ const connectionSource = new DataSource({
   logging: false,
   synchronize: false,
   entities: [join(__dirname, '**', '*.entity.{ts,js}')],
-  migrations: ['dist/migrations/*.js'],
+  migrations: ['migrations/**/*{.js,.ts}'],
   subscribers: ['src/subscriber/**/*{.ts,.js}'],
-});
+  cli: {
+    "migrationsDir": 'migrations/**/*{.js,.ts}'
+}
+} as  DataSourceOptions);
 export default connectionSource;
