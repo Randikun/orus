@@ -9,7 +9,7 @@ export class User {
     nullable: false,
     name: 'first_name',
     type: 'varchar',
-    length: '36'
+    length: '36',
   })
   uuid: string;
 
@@ -17,7 +17,7 @@ export class User {
     nullable: false,
     name: 'first_name',
     type: 'varchar',
-    length: '36'
+    length: '36',
   })
   firstName: string;
 
@@ -25,7 +25,7 @@ export class User {
     nullable: false,
     name: 'last_name',
     type: 'varchar',
-    length: '36'
+    length: '36',
   })
   lastName: string;
 
@@ -33,9 +33,9 @@ export class User {
     nullable: false,
     name: 'email',
     type: 'varchar',
-    length: '36'
+    length: '36',
   })
-  email: string
+  email: string;
 
   @Column({
     nullable: false,
@@ -48,7 +48,7 @@ export class User {
   @Column({
     default: true,
     name: 'is_active',
-    type: 'boolean'
+    type: 'boolean',
   })
   isActive: boolean;
 }

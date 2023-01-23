@@ -15,10 +15,10 @@ const connectionSource = new DataSource({
   logging: false,
   synchronize: false,
   entities: [join(__dirname, '**', '*.entity.{ts,js}')],
-  migrations: ['migrations/**/*{.js,.ts}'],
+  migrations: ['src/migrations/**/*{.js,.ts}'],
   subscribers: ['src/subscriber/**/*{.ts,.js}'],
   cli: {
-    "migrationsDir": 'migrations/**/*{.js,.ts}'
-}
-} as  DataSourceOptions);
+    migrationsDir: 'src/migrations/**/*{.js,.ts}',
+  },
+} as DataSourceOptions);
 export default connectionSource;

@@ -1,11 +1,10 @@
-import { MigrationInterface, QueryRunner } from "typeorm"
+import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class UserCreationMigration1674509155622 implements MigrationInterface {
+  name = 'UserCreationMigration1674509155622';
 
-    name = 'UserCreationMigration1674509155622';
-
-    public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
         CREATE TABLE IF NOT EXISTS users (
             id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
             user_uuid varchar(36) NOT NULL,
@@ -18,10 +17,9 @@ export class UserCreationMigration1674509155622 implements MigrationInterface {
             updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         );
     `);
-    }
+  }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query('DROP TABLE users');
-    }
-
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query('DROP TABLE users');
+  }
 }
