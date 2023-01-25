@@ -1,16 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, Generated } from 'typeorm';
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({
-    nullable: false,
-    name: 'first_name',
-    type: 'varchar',
-    length: '36',
-  })
+  @Column({ type: 'varchar', name: 'uuid' })
+  @Generated('uuid')
   uuid: string;
 
   @Column({
@@ -44,6 +40,14 @@ export class User {
     length: '100',
   })
   password: string;
+
+  @Column({
+    nullable: false,
+    name: 'role',
+    type: 'varchar',
+    length: '16',
+  })
+  role: string;
 
   @Column({
     default: true,
