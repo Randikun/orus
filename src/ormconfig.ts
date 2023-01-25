@@ -14,11 +14,21 @@ const connectionSource = new DataSource({
   port: Number(config.getDatabasePort()) || 3306,
   logging: false,
   synchronize: false,
-  entities: [join(__dirname, '**', '*.entity.{ts,js}')],
-  migrations: ['src/migrations/**/*{.js,.ts}'],
+  entities: [__dirname + '/../**/*.entity.js'],
   subscribers: ['src/subscriber/**/*{.ts,.js}'],
+
+  // FIX THIS SOON
+
+  // TO RUN SERVER SUCCESSFULLY
+  migrations: ['migrations/*{.js}'],
   cli: {
-    migrationsDir: 'src/migrations/**/*{.js,.ts}',
+    migrationsDir: 'migrations/*{.js}',
   },
+
+  /*
+  TO RUN TYPEORM MIGRATIONS: 
+  migrations: ["migrations/*{.ts,.js}"],
+  cli: { "migrationsDir": "migrations/*{.ts,.js}" }
+  */
 } as DataSourceOptions);
 export default connectionSource;
